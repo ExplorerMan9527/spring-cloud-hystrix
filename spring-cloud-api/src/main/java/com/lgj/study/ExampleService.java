@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(value = "provider", fallbackFactory = ProviderClientServiceFallbackFactory.class)
 public interface ExampleService {
 
-    @RequestMapping(value = "/provider/test")
-    String test(String name);
+    @RequestMapping(value = "/provider/test/{name}")
+    String test(@PathVariable("name") String name);
 }
